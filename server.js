@@ -12,7 +12,7 @@ function parseInstCust(str){
     }
     return result;
 }
-
+var port_number = process.env.PORT || 8080;
 http.createServer(function(req, res){
   if(req.url.indexOf('/api') != -1){
       var x = req.url;
@@ -52,4 +52,4 @@ http.createServer(function(req, res){
       res.writeHead(404 , {'content-type' : 'text/html'});
       fs.createReadStream(__dirname + '/notfound.html').pipe(res);
   }
-}).listen(1337,'127.0.0.1');
+}).listen(port_number);
